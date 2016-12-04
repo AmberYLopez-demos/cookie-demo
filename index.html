@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cookie-demo</title>
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+</head>
+
+<body>
+<ul>
+    <li id="colour_1">红色</li>
+    <li id="colour_2">黑色</li>
+</ul>
+<script>
+    $(function () {
+        $.cookie("name","02145021",{//创建一个cookie
+            expires:10,//有效期10天
+            path:"/",//cookie的路径,
+            // 如果不设置有效路径，在默认情况下，只能在cookie设置当前页面读取该cookie，cookie的路径用于设置能够读取cookie的顶级目录。
+            domain: '',//创建cookie所在网页所拥有的域名；
+            secure:true ,//默认是false，如果为true，cookie的传输协议需为https；
+            raw:false
+            //默认为false，读取和写入时候自动进行编码和解码（使用encodeURIComponent编码，使用decodeURIComponent解码），
+            // 关闭这个功能，请设置为true
+        });
+
+        var res = $.cookie("name"); //读取cookie,如果不存在返回null
+        $.cookie('name',null);
+
+        alert(res);
+    });
+
+</script>
+</body>
+</html>
